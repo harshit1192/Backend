@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   // Home route
   if (req.method === "GET" && pathname === "/") {
     res.writeHead(200, { "Content-Type": "text/plain" });
-    return res.end("Welcome to Notes API");
+    return res.end("Hi my name is Harshit singh");
   }
 
   // Get all notes OR note by id
