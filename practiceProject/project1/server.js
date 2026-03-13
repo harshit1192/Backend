@@ -17,3 +17,6 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+//jab  /api/datapath par get request aayagi tab hame file ko read 
+// karke us data ko response  me bhejna hai.
