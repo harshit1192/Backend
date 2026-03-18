@@ -14,7 +14,7 @@ function saveStudents(students) {
 }
 
 const server = http.createServer((req, res) => {
-  // CORS HEADERS
+  
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -22,21 +22,20 @@ const server = http.createServer((req, res) => {
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // HANDLE PREFLIGHT
+
   if (req.method === "OPTIONS") {
     res.writeHead(200);
     res.end();
     return;
   }
   
-  // GET all students
+  
   if (req.method === "GET" && req.url === "/api/students") {
     const students = getStudents();
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(students));
   }
 
-  // ADD student
   else if (req.method === "POST" && req.url === "/api/students") {
     let body = "";
 
@@ -59,7 +58,7 @@ const server = http.createServer((req, res) => {
     });
   }
 
-  // DELETE student
+
   else if (req.method === "DELETE") {
     const id = parseInt(req.url.split("/")[3]);
 
@@ -72,7 +71,7 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ message: "Deleted" }));
   }
 
-// EDIT student
+
   else if (req.method === "PUT") {
     const id = parseInt(req.url.split("/")[3]);
 
